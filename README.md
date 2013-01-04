@@ -1,2 +1,2 @@
-Pack The Venue beta oh yeah
+Pack The Venue oh yeah
 ============
