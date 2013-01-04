@@ -1,0 +1,36 @@
+<div class="container container-padding">
+	<div class="row">
+		<div class="span3 well well-large">
+			</div>
+			</div>
+		<div class="row">
+			<div class="span12">
+			<h4>Active Events</h4>
+			</div>
+		</div>
+		<div class="row">
+
+	<% if @activities.blank? %>
+    <div class="span12">
+    	<h5 class="muted">This user currently has no active events</h5>
+    	</div>
+<% else %>
+	<% @activities.each do |activity| %>
+
+	<div class="span3 profile-activity">
+		<div class="row">
+			<div class="span3">
+				<h5 class="pull-left"><%=raw truncate(activity.name, :length => 30) %></h5>
+				
+				<h6><%= link_to 'View Event', activity, :class => "pull-right" %></h6>
+		</div>
+		</div>
+		<a href="#" class="thumbnail">
+      <img src="http://placehold.it/300x200" alt="">
+    </a>
+
+		</div>
+		<% end %>
+	<% end %>	
+</div>
+</div>

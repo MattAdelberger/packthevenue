@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= @title.nil? ? "Pack The Venue" : "#{@title} | Pack The Venue" %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="splash">
+
+	<div class="box centered">
+		<h1>PACK THE VENUE</h1>
+		<h2>Coming Soon</h2>
+		<h5>Helping venues and promoters sell out events</h5>
+		<a href="#videoModal" data-toggle="modal"><h3>Watch Video</h3></a>
+		<p>Enter your email address for important updates!</p>
+		<div class="input-append">
+<div id="mc_embed_signup">
+<form action="http://packthevenue.us6.list-manage.com/subscribe/post?u=b2e80f5f8fd3aca06d9bd8383&amp;id=90f57186aa" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+	<div class="input-append">
+			<input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address">
+            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
+	</div>
+</form>
+</div>
+</div>
+		</div>
+		
+<div id="videoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+  	<iframe width="526" height="330" src="https://www.youtube.com/embed/XQu8TTBmGhA?rel=0" 
+		frameborder="1" allowfullscreen></iframe>
+  </div>
+    <div class="modal-footer">
+    <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<!-- Begin MailChimp Signup Form -->
+
+
+
+<!--End mc_embed_signup-->

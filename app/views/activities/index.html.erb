@@ -1,0 +1,45 @@
+<div id="find-activity">
+	<div class="row search">
+		test
+	</div>
+	<div class="row">
+		<div class="side-bar">
+			Test
+			</div>
+
+		<div class="map-container">
+			
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%= activity.name %></td>
+    <td><%= activity.description %></td>
+    <td><%= activity.start %></td>
+    <td><%= activity.end %></td>
+    <td><%= activity.address %></td>
+    <td><%= activity.city %></td>
+    <td><%= activity.state %></td>
+    <td><%= activity.zip %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+    <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+</div>

@@ -1,0 +1,44 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+  	<div class="container">
+    <%= link_to "PACK THE VENUE", dashboard_path, :class => "brand pull-left" %>
+    <%= link_to '', 'https://www.facebook.com/packthevenue', :class=> "facebook pull-left", :target => "_blank"  %>
+    <%= link_to '', 'https://twitter.com/packthevenue', :class=> "twitter pull-left", :target => "_blank"  %>
+	<%= form_tag search_path, :class => "navbar-search" do %>
+    	<%= text_field_tag :header_search, nil, :placeholder => 'Search for people and activities', :class => "span3" %>
+    <% end %>
+		<ul class="nav pull-right">
+			<li><%= link_to "Dashboard", dashboard_path %></li>
+			<li><%= link_to "Create An Event", new_activity_path %></li>
+			<li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+       <% @user = Account.find(current_account) %>
+        <%= combine_name(@user.first_name, @user.last_name) %>
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      		<li><%= link_to 'View Profile', profile_path %></li>  
+ 	 		<li><%= link_to "View Finances", account_settings_path %></li>
+ 	 		 <li class="divider"></li>
+ 	 		 <li><%= link_to "Edit Profile", account_settings_path %></li>
+ 	 		 <li class="divider"></li>
+ 	  		<li><%= link_to "Log Out", log_out_path %></li>
+    </ul>
+  </li>
+		</ul>
+    </div>
+  </div>
+</div>
+    <div id="header_search_results">
+    	</div>
+
+   
+
+
+
+
+
+
+

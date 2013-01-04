@@ -1,0 +1,84 @@
+<div class="container">
+		  <% if @activity.errors.any? %>
+    <div class="alert alert-error">
+      <%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:
+
+      <ul>
+      <% @activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+	<div class="span9">
+		<%= nested_form_for @activity, :html => { :multipart => true } do |f| %>
+	
+
+  
+
+	<legend>General Information</legend>
+	
+	
+	
+	
+	<div class="controls-row">
+			<%= f.text_field :name, :placeholder => 'Activity Name', :class=> "span6" %>
+			<select class="span3"></select>
+			</div>	
+			<%= f.text_area :description, :placeholder => 'Description', :class=> "span9", :rows => "10" %>
+			<div class="span3">
+				<%= f.file_field :photo %>
+			</div>
+	<legend>Address</legend>
+			
+			<%= f.text_field :address, :placeholder => 'Street', :class => "span9" %>
+			<div class="controls-row">
+			<%= f.text_field :city, :placeholder => 'City', :class => "span4" %>
+			<%= f.text_field :state, :placeholder => 'State', :class => "span3" %>
+			<%= f.text_field :zip, :placeholder => 'Zip Code', :class => "span2" %>
+			</div>
+
+   	<legend>Tickets</legend>
+
+  		<%= f.fields_for :ticket_types do |b| %>
+			<%= b.text_field :ticketname, :value => "", :placeholder=>"Ticket Name" %>
+			<%= b.text_field :ticket_price, :value => "", :placeholder=>"Ticket Price" %>
+			<%= b.text_field :max_price, :value => "", :placeholder=>"Discounted Ticket Price" %>
+			<%= b.link_to_remove "", :class => "icon-remove", :alt => "Remove" %>
+
+	<% end %>
+
+	<%= f.link_to_add "Add Another Ticket", :ticket_types %>
+	
+	
+	
+	
+	<legend>Min/Max</legend>
+			<%= f.text_field :min, :value => "", :placeholder=>"Min Guests" %>
+			<%= f.text_field :max, :value => "", :placeholder=>"Max Guests" %>
+
+
+
+
+
+  
+
+
+  	 <%= f.label :private %><br />
+  	 <%= f.check_box :private %>
+    
+
+			<%= f.datetime_select :start, :placeholder => 'Start Date' %>
+
+			<%= f.datetime_select :end, :placeholder => 'End Date' %>
+<br>
+
+    <%= f.submit :class => 'btn btn-primary' %>
+
+
+	</div>
+</div>
+</div>
+<% end %>
+

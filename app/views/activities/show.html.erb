@@ -1,0 +1,73 @@
+<div class="container container-padding">
+	<div class="row">
+		<div class="span4">
+			<div class="thumbnail">
+				<%= image_tag @activity.photo.url(:medium) %>
+			</div>
+			<div class="thumbnail">
+							<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-504bb21c1e583306"></script>
+<!-- AddThis Button END -->
+			</div>
+		</div>
+		<div class="span8">
+		<h3><%= @activity.name %></h3>
+		</div>
+	</div>
+	
+	
+	
+
+
+
+
+
+
+			<%= @activity.address %><br>
+			<%= @activity.city %> <%= @activity.state %>,<%= @activity.zip %></p>
+			<h4>Map</h4>
+			<%= gmaps4rails(@map) %>
+
+				 <%= @activity.start %>
+
+				 <%= @activity.description %>
+
+			<h2>10 SPOTS LEFT</h2>
+			 MIN: <%= @activity.min %>
+  			MAX:	<%= @activity.max %><br>
+  			  Money Needed By<%= @activity.end %>
+
+
+<div id="attendActivityModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Select Tickets</h3>
+  </div>
+  <div class="modal-body">
+	<%= form_tag make_payment_path do %>
+  		<% @activity.ticket_types.each do |t| %>
+  			<%= label_tag t.ticketname.downcase %>
+  			<%= select_tag t.ticketname.downcase, options_for_select(getSpots(t)) %>
+  		<% end %>
+  		<%= hidden_field_tag :activity_id, @activity.id %>
+		
+  </div>
+  <div class="modal-footer">
+    	<%= submit_tag "Check Out", :class=>"btn btn-primary" %>
+	<% end %>
+    <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>
+</div>
+
+
+
+
+

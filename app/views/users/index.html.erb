@@ -1,0 +1,13 @@
+<div class="clear-header">
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+  </tr>
+<% end %>
+</table>
+</div>

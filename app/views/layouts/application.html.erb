@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= @title.nil? ? "Pack The Venue" : "#{@title} | Pack The Venue" %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if account_signed_in? %>
+	<%= render :partial => "../partials/header_logged"%>
+<% else %>
+	<%= render :partial => "../partials/header"%>
+<% end %>
+
+<div id="content">
+	<%= yield %>
+</div>
+<div id="footer">
+<% if account_signed_in? %>
+	<%= render :partial => "../partials/footer_logged"%>
+<% else %>
+	<%= render :partial => "../partials/footer"%>
+<% end %>
+</div>
+
+</body>
+</html>

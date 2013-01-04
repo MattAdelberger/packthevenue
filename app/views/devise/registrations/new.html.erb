@@ -1,0 +1,68 @@
+<div class="container container-padding">
+	<div class="row">
+				<div class="span4">
+				<h4>CONNECT WITH FACEBOOK</h4>
+	<%= image_tag("facebook-connect-button.png") %> </br>
+	<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+  <% end -%>
+		</div>
+		<div class="span8">
+			<h4>REGISTER NOW</h4>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <label>First Name</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.text_field :first_name %>
+    </div>
+   </div>
+   <label>Last Name</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.text_field :last_name %>
+    </div>
+   </div>
+   <label>Company Name (optional)</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.text_field :company_name %>
+    </div>
+   </div>
+   <label>Zip Code</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.text_field :zip_code %>
+    </div>
+   </div>
+   <label>Email Adress</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.text_field :email %>
+    </div>
+   </div>
+   <label>Password</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.password_field :password %>
+    </div>
+   </div>
+<label>Confirm Password</label>
+  <div class="row">
+  <div class="span8">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+<div class="button-container">
+  <div><%= f.submit "Sign up", :class => 'btn btn-primary' %></div>
+<% end %>
+</div>
+
+			</div>
+
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+  	<div class="container">
+    <%= link_to "PACK THE VENUE", landing_path, :class => "brand pull-left" %>
+    <%= link_to '', 'https://www.facebook.com/packthevenue', :class=> "facebook pull-left", :target => "_blank"  %>
+    <%= link_to '', 'https://twitter.com/packthevenue', :class=> "twitter pull-left", :target => "_blank"  %>
+		<ul class="nav pull-right">
+      		<li><%= link_to 'Home', landing_path  %></li>
+ 			<li><%= link_to 'How It Works', how_it_works_path  %></li>
+ 			<li><%= link_to 'Sign Up', new_account_path  %></li>
+ 			<li><%= link_to 'Log In', log_in_path  %></li>
+		</ul>
+    </div>
+  </div>
+</div>
