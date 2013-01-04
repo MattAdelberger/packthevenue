@@ -1,2 +1,2 @@
-packthevenue
+Pack The Venue beta
 ============
