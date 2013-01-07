@@ -11,16 +11,11 @@
     </div>
   <% end %>
 <div class="row">
+	<div class="span12">
+		<legend>General Information</legend>
+		</div>
 	<div class="span9">
 		<%= nested_form_for @activity, :html => { :multipart => true } do |f| %>
-	
-
-  
-
-	<legend>General Information</legend>
-	
-	
-	
 	
 	<div class="controls-row">
 			<%= f.text_field :name, :placeholder => 'Activity Name', :class=> "span6" %>
@@ -30,7 +25,18 @@
 			<div class="span3">
 				<%= f.file_field :photo %>
 			</div>
-	<legend>Address</legend>
+	</div>
+		<div class="span3">
+		<div class="well">
+			Directions
+			</div>
+			</div>
+			</div>
+			<div class="row">
+			<div class="span12">
+		<legend>Address</legend>
+		</div>
+	<div class="span9">
 			
 			<%= f.text_field :address, :placeholder => 'Street', :class => "span9" %>
 			<div class="controls-row">
@@ -38,8 +44,18 @@
 			<%= f.text_field :state, :placeholder => 'State', :class => "span3" %>
 			<%= f.text_field :zip, :placeholder => 'Zip Code', :class => "span2" %>
 			</div>
-
-   	<legend>Tickets</legend>
+			</div>
+			<div class="span3">
+		<div class="well">
+			Directions
+			</div>
+			</div>
+			</div>
+			<div class="row">
+			<div class="span12">
+		<legend>Tickets</legend>
+		</div>
+	<div class="span9">
 
   		<%= f.fields_for :ticket_types do |b| %>
 			<%= b.text_field :ticketname, :value => "", :placeholder=>"Ticket Name" %>
@@ -50,15 +66,31 @@
 	<% end %>
 
 	<%= f.link_to_add "Add Another Ticket", :ticket_types %>
+	</div>
+		<div class="span3">
+		<div class="well">
+			Directions
+			</div>
+			</div>
+			</div>
 	
 	
-	
-	
-	<legend>Min/Max</legend>
+	<div class="row">
+			<div class="span12">
+		<legend>Min/Max</legend>
+		</div>
+	<div class="span9">
 			<%= f.text_field :min, :value => "", :placeholder=>"Min Guests" %>
 			<%= f.text_field :max, :value => "", :placeholder=>"Max Guests" %>
 
-
+	</div>
+		<div class="span3">
+		<div class="well">
+			Directions
+			</div>
+			</div>
+			</div>
+	
 
 
 
