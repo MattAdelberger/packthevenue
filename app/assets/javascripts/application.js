@@ -15,6 +15,7 @@
 //= require_tree
 //= require_self
 //= require bootstrap
+//= require bootstrap-datepicker
 
 $(document).ready(function(){
 	$("#header_search").bind("keyup", function() {
@@ -45,13 +46,14 @@ $(document).ready(function(){
 	        $("#header_search_results").css("visibility", "hidden")
 	    }
 	});
+	
+	$(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+    $(this).datepicker({
+    	"format": "yyyy-mm-dd", 
+    	"weekStart": 1, 
+    	"autoclose": true})
+});
 
-	//$("#header_search").blur(function(){
-	//	$("#header_search_results").css("visibility", "hidden")
-	//});
-	//$("#header_search").focus(function(){
-	//	$("#header_search_results").css("visibility", "visible")
-	//});
  });
 
 

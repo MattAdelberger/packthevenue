@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'balanced'
+
 gem "geocoder"
 
 gem 'gmaps4rails'
@@ -31,6 +33,8 @@ gem 'gmaps4rails'
 gem 'jquery-ui-rails'
 
 gem "paperclip", "~> 3.0"
+
+gem 'bootstrap-datepicker-rails', '>= 0.6.21'
 
 gem "acts_as_follower"
 

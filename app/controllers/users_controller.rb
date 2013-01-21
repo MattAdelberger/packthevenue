@@ -46,6 +46,7 @@ def profile
   @followers = @user.followers_count
   @activities = Activity.where(:account_id => @user)
   @title = combine_name(@user.first_name, @user.last_name)
+  
 end
 
   def show

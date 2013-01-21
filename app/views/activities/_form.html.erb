@@ -14,40 +14,52 @@
 	<div class="span12">
 		<legend>General Information</legend>
 		</div>
-	<div class="span9">
+	<div class="span8">
 		<%= nested_form_for @activity, :html => { :multipart => true } do |f| %>
 	
-	<div class="controls-row">
-			<%= f.text_field :name, :placeholder => 'Activity Name', :class=> "span6" %>
-			<select class="span3"></select>
+	<div class="controls controls-row">
+			<%= f.text_field :name, :placeholder => 'Event Name', :class=> "span5" %>
+			<select class="span3">
+				<option value="">Select a Category...</option>
+			</select>
 			</div>	
-			<%= f.text_area :description, :placeholder => 'Description', :class=> "span9", :rows => "10" %>
-			<div class="span3">
+		<div class="controls-row">
+			<%= f.text_area :description, :placeholder => 'Event Description', :class=> "span8", :rows => "10" %>
+			</div>
+		<div class="controls-row">
+			<%= f.text_field :start, :placeholder => "Event Date", 'data-behaviour' => 'datepicker', :class => "span2" %>
+			<%= f.time_select :end, :ampm => true, :class => "span2 offset1" %>
+			
+		</div>
+			<div class="controls-row">
 				<%= f.file_field :photo %>
 			</div>
 	</div>
-		<div class="span3">
+		<div class="span3 offset1">
 		<div class="well">
-			Directions
+			<p>Enter a name, category, description, date, and time for your event. </p>
+			<p> It is also recommended that you upload a picture
+				to represent your event ie. Flyer, company logo etc...</p>
 			</div>
 			</div>
 			</div>
 			<div class="row">
 			<div class="span12">
-		<legend>Address</legend>
+		<legend>Location</legend>
 		</div>
 	<div class="span9">
 			
-			<%= f.text_field :address, :placeholder => 'Street', :class => "span9" %>
+			<%= f.text_field :address, :placeholder => 'Street', :class => "span8" %>
 			<div class="controls-row">
-			<%= f.text_field :city, :placeholder => 'City', :class => "span4" %>
+			<%= f.text_field :city, :placeholder => 'City', :class => "span3" %>
 			<%= f.text_field :state, :placeholder => 'State', :class => "span3" %>
 			<%= f.text_field :zip, :placeholder => 'Zip Code', :class => "span2" %>
 			</div>
 			</div>
 			<div class="span3">
 		<div class="well">
-			Directions
+			<p>Enter the events address here. You can also provide additional information
+				if neccessary to help insure that your guests have no problems finding your event.</p>
 			</div>
 			</div>
 			</div>
@@ -61,11 +73,10 @@
 			<%= b.text_field :ticketname, :value => "", :placeholder=>"Ticket Name" %>
 			<%= b.text_field :ticket_price, :value => "", :placeholder=>"Ticket Price" %>
 			<%= b.text_field :max_price, :value => "", :placeholder=>"Discounted Ticket Price" %>
-			<%= b.link_to_remove "", :class => "icon-remove", :alt => "Remove" %>
+
 
 	<% end %>
 
-	<%= f.link_to_add "Add Another Ticket", :ticket_types %>
 	</div>
 		<div class="span3">
 		<div class="well">
@@ -97,15 +108,15 @@
   
 
 
-  	 <%= f.label :private %><br />
+  	 <%= f.label :private %>
   	 <%= f.check_box :private %>
     
 
-			<%= f.datetime_select :start, :placeholder => 'Start Date' %>
+			
+			
 
-			<%= f.datetime_select :end, :placeholder => 'End Date' %>
+			
 <br>
-
     <%= f.submit :class => 'btn btn-primary' %>
 
 

@@ -78,6 +78,23 @@
       <%= f.password_field :password_confirmation %>
     </div>
   </div>
+     <label>Select One</label>
+   <div class="row">
+  <div class="span8">
+  	<label class="radio">
+  	<%= radio_button_tag 'type_of_user', "merchant" %>
+  	I will be using Pack The Venue to host events
+  	</label>
+  	<label class="radio">
+  	<%= radio_button_tag 'type_of_user', "buyer" %>
+  	I will be using Pack The Venue to attend events
+  	</label>
+  	<label class="radio">
+  	<%= radio_button_tag 'type_of_user', "both" %>
+  	I will be using Pack The Venue to host and attend events
+  	</label>
+    </div>
+   </div>
 <div class="button-container">
   <div><%= f.submit "Sign up", :class => 'btn btn-primary' %></div>
 <% end %>

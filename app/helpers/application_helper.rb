@@ -18,5 +18,5 @@ module ApplicationHelper
 	 def current_user
 	   @current_user = Account.find(current_account)
 	 end
-	 
+
 end
