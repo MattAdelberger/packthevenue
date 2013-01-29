@@ -3,20 +3,25 @@
 		<div class="span3 well well-large">
 			</div>
 			</div>
-		<div class="row">
-			<div class="span12">
-			<h4>Active Events</h4>
-			</div>
-		</div>
-		<div class="row">
+			
+			
+		<ul class="nav nav-tabs">
+  <li class="active"><a href="#hosted_events" data-toggle="tab">Events Hosting</a></li>
+  <li><a href="#attended_events" data-toggle="tab">Events Attending</a></li>
+  <li><a href="#past_events" data-toggle="tab">Past Events</a></li>
+</ul>
 
-	<% if @activities.blank? %>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="hosted_events">
+  			<div class="row">
+	<% if @activities_hosting.blank? %>
     <div class="span12">
     	<h5 class="muted">You currently have no active events,
     	<%= link_to "create an event", new_activity_path %> now</h5>
     	</div>
 <% else %>
-	<% @activities.each do |activity| %>
+	<% @activities_hosting.each do |activity| %>
 
 	<div class="span3 profile-activity">
 		<div class="row">
@@ -32,6 +37,37 @@
 
 		</div>
 		<% end %>
-	<% end %>	
+	<% end %>
+</div>
+  	</div>
+  <div class="tab-pane" id="attended_events">
+  			<div class="row">
+	<% if @activities_attending.blank? %>
+    <div class="span12">
+    	<h5 class="muted">Not Attending Any Events</h5>
+    	</div>
+<% else %>
+	<% @activities_attending.each do |payment| %>
+
+	<div class="span3 profile-activity">
+		<div class="row">
+			<div class="span3">
+				<h5 class="pull-left"><%=raw truncate(payment.activity.name, :length => 30) %></h5>
+				
+				<h6><%= link_to 'View Event', payment.activity, :class => "pull-right" %></h6>
+		</div>
+		</div>
+		<a href="#" class="thumbnail">
+      <img src="http://placehold.it/300x200" alt="">
+    </a>
+
+		</div>
+		<% end %>
+	<% end %>
+</div>
+  </div>
+  <div class="tab-pane" id="past_events">
+  	
+  </div>
 </div>
 </div>

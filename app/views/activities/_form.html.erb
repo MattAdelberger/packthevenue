@@ -55,6 +55,9 @@
 			<%= f.text_field :state, :placeholder => 'State', :class => "span3" %>
 			<%= f.text_field :zip, :placeholder => 'Zip Code', :class => "span2" %>
 			</div>
+			<div class="controls-row">
+			<%= f.text_area :location_description, :placeholder => 'Additional Location Information', :class=> "span8", :rows => "5" %>
+			</div>
 			</div>
 			<div class="span3">
 		<div class="well">
@@ -65,17 +68,19 @@
 			</div>
 			<div class="row">
 			<div class="span12">
-		<legend>Tickets</legend>
+		<legend>Ticket Information</legend>
 		</div>
 	<div class="span9">
+		<h5>When you venue has hit max capacity, how many people can it hold?</h5>
 
-  		<%= f.fields_for :ticket_types do |b| %>
-			<%= b.text_field :ticketname, :value => "", :placeholder=>"Ticket Name" %>
-			<%= b.text_field :ticket_price, :value => "", :placeholder=>"Ticket Price" %>
-			<%= b.text_field :max_price, :value => "", :placeholder=>"Discounted Ticket Price" %>
+			<%= f.text_field :max_capacity, :value => "", :placeholder=>"Max Capacity", :class => "span2" %>
+			<h5>How much will tickets cost at full capacity?</h5>
+			<%= f.text_field :reduced_ticket, :value => "", :placeholder=>"Discounted Ticket Price", :class => "span3" %>
+			<h5>How many people before price reduction starts?</h5>
+			<%= f.text_field :min_capacity, :value => "", :placeholder=>"Min Capacity", :class => "span2" %>
+			<h5>How much will tickets cost before price reduction starts?</h5>
+			<%= f.text_field :starting_ticket, :value => "", :placeholder=>"Starting Ticket Price", :class => "span3" %>
 
-
-	<% end %>
 
 	</div>
 		<div class="span3">
@@ -85,43 +90,12 @@
 			</div>
 			</div>
 	
-	
+
 	<div class="row">
-			<div class="span12">
-		<legend>Min/Max</legend>
-		</div>
-	<div class="span9">
-			<%= f.text_field :min, :value => "", :placeholder=>"Min Guests" %>
-			<%= f.text_field :max, :value => "", :placeholder=>"Max Guests" %>
-
-	</div>
-		<div class="span3">
-		<div class="well">
-			Directions
-			</div>
-			</div>
-			</div>
-	
-
-
-
-  
-
-
-  	 <%= f.label :private %>
-  	 <%= f.check_box :private %>
-    
-
-			
-			
-
-			
-<br>
-    <%= f.submit :class => 'btn btn-primary' %>
-
-
-	</div>
+		<div class="span9">
+    <%= f.submit :class => 'btn btn-primary pull-right' %>
 </div>
 </div>
+	</div>
 <% end %>
 

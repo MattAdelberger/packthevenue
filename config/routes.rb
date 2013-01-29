@@ -1,5 +1,9 @@
 Packthevenue::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :payments, :only => [:new, :create]
 
   resources :activities
@@ -20,7 +24,7 @@ end
     get "new_password" => "devise/passwords#new"
   end
   
-  root :to => "pages#splash"
+  root :to => "pages#landing"
   
   #payments
   
@@ -30,7 +34,7 @@ end
   
   #PAGES
   
-  match "dashboard" => "users#dashboard", :as => :dashboard
+  #match "dashboard" => "users#dashboard", :as => :dashboard
   
   match "home" => "pages#landing", :as => :landing
   

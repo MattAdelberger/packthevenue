@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   
-  before_filter :authenticate_account!, :except => [:index, :show]
+  before_filter :authenticate_account!, :except => [:show]
   
   def index
     @activities = Activity.all
@@ -13,7 +13,6 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
-    @activity.breakpoints.build
     @activity.ticket_types.build    
   end
 

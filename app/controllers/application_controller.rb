@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def after_sign_in_path_for(resource)
-    dashboard_path
+    profile_path
   end
 
   def after_sign_out_path_for(resource)
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if signed_in?.blank?
       redirect_to new_account_path
     else
-      redirect_to dashboard_path
+      redirect_to profile_path
     end
   end
   

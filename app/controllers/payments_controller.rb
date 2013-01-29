@@ -1,22 +1,29 @@
 class PaymentsController < ApplicationController
+  include PaymentsHelper
+  
 	before_filter :authenticate_account!, :except => [:make_payment, :confirmation]
+	
 	def make_payment
-		activity = Activity.find(params[:activity_id])
-		tmp = {}
-		activity.ticket_types.each do |t|
-			tmp[t.ticketname.downcase] = params[t.ticketname.downcase]
-		end 
-		session["tickets_selected"] = tmp
-		session["activity_id"] = params[:activity_id]
-		redirect_to confirmation_path
-	end
+    session["ticket_quantity"] = params[:ticket_quantity]
+    session["activity_id"] = params[:activity_id]
+    redirect_to confirmation_path
+  end
 	
 	def confirmation
 		@account = Account.new
-		#session["previous"] = request.fullpath
+		@payment = Payment.new
 	end
 	
-	def new
-		
+	def create
+	  @payment = Payment.new(params[:payment])
+    @payment.account_id = current_account.id
+    @payment.activity_id = session["activity_id"]
+    @payment.quantity = session["ticket_quantity"]
+    @payment.status = "Success"
+    if @payment.save 
+      redirect_to profile_path
+    else
+      render :action => :confirmation
+    end
 	end
 end

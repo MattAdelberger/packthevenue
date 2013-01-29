@@ -140,3 +140,8 @@ legend {
 	top:90px;
 }
 
+#show-event .well h4 {
+	border-bottom: 1px solid #ddd;
+	padding-bottom:5px;
+}
+

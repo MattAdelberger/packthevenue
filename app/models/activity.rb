@@ -1,15 +1,15 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :city, :description, :end, :latitude, :longitude, :name, :private, :photo,
-  :start, :state, :zip, :min, :max, :ticket_types_attributes, :breakpoints_attributes
+  attr_accessible :address, :city, :description, :end, :latitude, :longitude, :name, :photo,
+  :start, :state, :zip, :ticket_types_attributes, :location_description, :min_capacity, :reduced_ticket, 
+  :starting_ticket, :include_fee, :max_capacity
   belongs_to :account
   validates_presence_of :address, :city, :description, :name, :zip
  
   acts_as_followable
   
   has_many :ticket_types, :dependent => :destroy
-  has_many :breakpoints, :dependent => :destroy
   
-  accepts_nested_attributes_for :ticket_types, :breakpoints, :allow_destroy => true
+  accepts_nested_attributes_for :ticket_types, :allow_destroy => true
 
 	acts_as_gmappable
 	

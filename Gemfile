@@ -59,6 +59,8 @@ gem 'execjs'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'activeadmin'
+
 
 
 

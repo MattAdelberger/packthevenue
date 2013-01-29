@@ -1,14 +1,13 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
   	<div class="container">
-    <%= link_to "PACK THE VENUE", dashboard_path, :class => "brand pull-left" %>
+    <%= link_to "PACK THE VENUE", profile_path, :class => "brand pull-left" %>
     <%= link_to '', 'https://www.facebook.com/packthevenue', :class=> "facebook pull-left", :target => "_blank"  %>
     <%= link_to '', 'https://twitter.com/packthevenue', :class=> "twitter pull-left", :target => "_blank"  %>
-	<%= form_tag search_path, :class => "navbar-search" do %>
+<!--	<%= form_tag search_path, :class => "navbar-search" do %>
     	<%= text_field_tag :header_search, nil, :placeholder => 'Search for people and activities', :class => "span3" %>
-    <% end %>
+    <% end %> -->
 		<ul class="nav pull-right">
-			<li><%= link_to "Dashboard", dashboard_path %></li>
 			<li><%= link_to "Create An Event", new_activity_path %></li>
 			<li class="dropdown">
     <a class="dropdown-toggle"
@@ -31,8 +30,8 @@
     </div>
   </div>
 </div>
-    <div id="header_search_results">
-    	</div>
+<!--    <div id="header_search_results">
+ </div> -->
 
    
 

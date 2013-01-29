@@ -10,14 +10,6 @@ respond_to do |format|
   format.xml  { render :xml => @users }
 end
 end
-
-  def dashboard
-    @user = Account.find(current_account) 
-    @following = @user.all_following
-    @followed_activities = Activity.where(:account_id => @following)
-    @following_count = @user.follow_count
-    @title = combine_name(@user.first_name, @user.last_name)
-  end
   
 def follow
   user1 = Account.find(current_account)
@@ -44,7 +36,8 @@ end
 def profile
   @user = Account.find(current_account)
   @followers = @user.followers_count
-  @activities = Activity.where(:account_id => @user)
+  @activities_hosting = Activity.where(:account_id => @user)
+  @activities_attending = Payment.where(:account_id => @user)
   @title = combine_name(@user.first_name, @user.last_name)
   
 end
@@ -53,7 +46,8 @@ end
   @user = Account.find(params[:id])
   @title = combine_name(@user.first_name, @user.last_name)
   @followers = @user.followers_count
-  @activities = Activity.where(:account_id => @user)
+  @activities_hosting = Activity.where(:account_id => @user)
+  @activities_attending = Payment.where(:account_id => @user)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
