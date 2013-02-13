@@ -26,6 +26,10 @@ end
   
   root :to => "pages#landing"
   
+  #activities 
+  
+  match "guest_list" => "activities#guest_list", :as => :guest_list
+  
   #payments
   
   match "make_payment" => "payments#make_payment", :as => :make_payment

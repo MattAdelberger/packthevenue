@@ -1,0 +1,13 @@
+<% if account_signed_in? && @activity.account.id == current_user.id  %>
+<div id="admin-panel" class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="well well-large">
+						<%= link_to("View Event", { :action => 'show', :id => @activity.id}, :class => "btn btn-large") %>
+						<%= link_to("Edit Event", { :action => 'edit', :id => @activity.id}, :class => "btn btn-large") %>
+						<%= link_to("Guest List", { :action => 'guest_list', :id => @activity.id}, :class => "btn btn-large") %>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>

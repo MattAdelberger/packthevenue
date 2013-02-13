@@ -1,14 +1,4 @@
-<% if account_signed_in? && @activity.account.id == current_user.id  %>
-<div class="container">
-	<div class="row">
-		<div class="span12">
-			<div class="well well-small">
-				<h3>Admin Panel</h3>
-			</div>
-			</div>
-	</div>
-</div>
-	<% end %>
+<%= render :partial => "../partials/admin_panel"%>
 
 <div id="show-event" class="container container-padding">
 
@@ -49,11 +39,25 @@
     	<%= submit_tag "Check Out", :class=>"btn btn-primary pull-right" %>
 	<% end %>
 		</div>
-
+		
 
 
 </div>
+			<div class="span12">
+		<div class="row">
 
+
+Ticket's Left: <%= @tickets_remaining %>
+</div>
+<div class="row">
+Current Ticket Price: <%= number_to_currency(@current_price) %>
+</div>
+<div class="row">
+Total Savings: <%= number_to_currency(@saving_price) %>
+</div>
+</div>
+</div>
+</div>
 
 
 

@@ -2,13 +2,31 @@
 
 <% activity = Activity.find(session["activity_id"]) %>
 
-<%= activity.name %>
+General Admission
  
  <%= session["ticket_quantity"] %>
  
  <%= form_for @payment do |f| %>
  
- 	<%= f.submit 'Place Order', :class => 'btn btn-primary pull-right' %>
+
+  <fieldset>
+    <legend>Payment Information</legend>
+    <label>Card Holder Name</label>
+    <input type="text" class="span5" placeholder="John Doe">
+    <label>Card Number</label>
+    <input type="text" class="span5" placeholder="1234 5678 9876 5432">
+    <label>Security Code</label>
+    <input type="text" class="span1" placeholder="888">
+    <label>Expiration Date</label>
+    <select class="span1"></select>
+    <select class="span1"></select>
+    <legend>Billing Information</legend>
+    <%= f.submit 'Place Order', :class => 'btn btn-primary pull-right' %>
+  </fieldset>
+
+
+ 
+ 	
  
  <% end %>
 

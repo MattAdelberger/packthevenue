@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 
+
 $(document).ready(function(){
 	$("#header_search").bind("keyup", function() {
 	    if($("#header_search").val() != ''){
@@ -53,6 +54,7 @@ $(document).ready(function(){
     	"weekStart": 1, 
     	"autoclose": true})
 });
+
 
  });
 

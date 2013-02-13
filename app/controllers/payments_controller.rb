@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
     @payment.account_id = current_account.id
     @payment.activity_id = session["activity_id"]
     @payment.quantity = session["ticket_quantity"]
-    @payment.status = "Success"
+    @payment.status = "Card Verified"
     if @payment.save 
       redirect_to profile_path
     else

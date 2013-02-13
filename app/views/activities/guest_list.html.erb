@@ -1,0 +1,23 @@
+<%= render :partial => "../partials/admin_panel"%>
+
+<div class="container container-padding">
+	
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @payments.each do |payments| %>
+<tr>
+	<td><%= combine_name(payments.account.first_name, payments.account.last_name) %></td>
+	<td><%= payments.quantity %></td>
+	<td><%= payments.status %></td>
+</tr>
+<% end %>
+  </tbody>
+</table>
+</div>

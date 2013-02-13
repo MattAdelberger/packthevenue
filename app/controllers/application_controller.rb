@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def currentTicketPrice(activity)
+    payments = Payment.find(:all, :conditions => {:activity_id => activity.id})
+    increment = (activity.starting_ticket.to_f / (activity.max_capacity - activity.min_capacity))
+    current_ticket = increment * view_context.ticketsRemaining(activity)
+    return current_ticket
+  end
+  
   def header_search
   	phrase = params[:phrase]
   	queryString = "%#{phrase}%"
@@ -30,4 +37,8 @@ class ApplicationController < ActionController::Base
  def combine_name(first, last)
 		first + " " + last
 	end
+	
+	def check_privileges!(activity)
+  redirect_to "/profile" unless current_user.id = activity.account.id
+end
 end
