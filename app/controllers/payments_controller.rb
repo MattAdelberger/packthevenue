@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
 		@payment = Payment.new
 	end
 	
-	def create
+	def create 
 	  @payment = Payment.new(params[:payment])
     @payment.account_id = current_account.id
     @payment.activity_id = session["activity_id"]

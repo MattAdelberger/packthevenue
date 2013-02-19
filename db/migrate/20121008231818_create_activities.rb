@@ -16,9 +16,10 @@ class CreateActivities < ActiveRecord::Migration
       t.boolean :gmaps 
 	    t.integer :max_capacity, :default => 1, :null => false
 	    t.integer :min_capacity
-	    t.integer :reduced_ticket, :null => false
-	    t.integer :starting_ticket, :null => false
+	    t.decimal :reduced_ticket, :null => false
+	    t.decimal :starting_ticket, :null => false
 	    t.boolean :include_fee
+	    t.string :category, :null => false
       t.timestamps
     end
   end

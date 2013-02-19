@@ -24,7 +24,7 @@ end
     get "new_password" => "devise/passwords#new"
   end
   
-  root :to => "pages#landing"
+  root :to => "pages#splash"
   
   #activities 
   
@@ -61,6 +61,8 @@ end
   #search
   
   match "search" => "application#header_search", :as => :search, :via => :get
+ 
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,6 +16,7 @@
   <%= f.text_field :zip_code %></div>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
+  <%= f.file_field :photo %>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
@@ -31,5 +32,6 @@
 
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+
 
 	</div>

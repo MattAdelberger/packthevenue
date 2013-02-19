@@ -2,6 +2,7 @@
   <div class="navbar-inner">
   	<div class="container">
     <%= link_to "PACK THE VENUE", profile_path, :class => "brand pull-left" %>
+    <span class="beta pull-left">BETA</span>
     <%= link_to '', 'https://www.facebook.com/packthevenue', :class=> "facebook pull-left", :target => "_blank"  %>
     <%= link_to '', 'https://twitter.com/packthevenue', :class=> "twitter pull-left", :target => "_blank"  %>
 <!--	<%= form_tag search_path, :class => "navbar-search" do %>
@@ -19,7 +20,6 @@
       </a>
     <ul class="dropdown-menu">
       		<li><%= link_to 'View Profile', profile_path %></li>  
- 	 		<li><%= link_to "View Finances", account_settings_path %></li>
  	 		 <li class="divider"></li>
  	 		 <li><%= link_to "Edit Profile", account_settings_path %></li>
  	 		 <li class="divider"></li>

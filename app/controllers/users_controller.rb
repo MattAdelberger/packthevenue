@@ -37,7 +37,7 @@ def profile
   @user = Account.find(current_account)
   @followers = @user.followers_count
   @activities_hosting = Activity.where(:account_id => @user)
-  @activities_attending = Payment.where(:account_id => @user)
+  @activities_attending = Payment.where(:account_id => @user).select("distinct activity_id")
   @title = combine_name(@user.first_name, @user.last_name)
   
 end
@@ -53,5 +53,4 @@ end
       format.xml  { render :xml => @user }
     end
   end
-  
 end

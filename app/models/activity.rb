@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :address, :city, :description, :end, :latitude, :longitude, :name, :photo,
+  attr_accessible :address, :city, :description, :end, :latitude, :longitude, :name, :photo, :category,
   :start, :state, :zip, :ticket_types_attributes, :location_description, :min_capacity, :reduced_ticket, 
   :starting_ticket, :include_fee, :max_capacity
   belongs_to :account

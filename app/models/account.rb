@@ -6,10 +6,12 @@ class Account < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :type_of_user, :email, :password, :password_confirmation, :remember_me,:provider, :uid, :first_name, :last_name, :company_name, :zip_code
+  attr_accessible :type_of_user, :email, :password, :password_confirmation, :remember_me,:provider, :uid, :first_name, :last_name, :company_name, :zip_code, :photo
   # attr_accessible :title, :body
   
   devise :omniauthable
+  
+  has_attached_file :photo, :styles => { :large => "600x600", :medium => "200x200", :thumb => "50x50>" }
   
   acts_as_followable
   acts_as_follower

@@ -1,37 +1,6 @@
 <div class="container container-padding">
 	<div class="row">
 		<div class="span4">
-			<h4>Log in</h4>
-			  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>		
-  <label>Email Address</label>
-  <div class="row">
-  <div class="span8">
-      <%= f.email_field :email %>
-    </div>
-   </div>
-   <label>Password</label>
-  <div class="row">
-  <div class="span8">
-     <%= f.password_field :password %>
-    </div>
-   </div>
-
-<div class="row">
-	<div class="span4">
-  <div><%= f.submit "Sign In", :class => 'btn btn-primary' %></div>
-	</div>  
-
-  
-  
-  <div class="span4">
-  	<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot Your Password?", new_password_path(resource_name) %><br />
-<% end -%>
-</div>
- </div>
-<% end %>
-		</div>
-		<div class="span4">
 			<h4>New to Pack The Venue?</h4>
 			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -60,7 +29,7 @@
       <%= f.text_field :zip_code %>
     </div>
    </div>
-   <label>Email Adress</label>
+   <label>Email Address</label>
   <div class="row">
   <div class="span8">
       <%= f.text_field :email %>
@@ -82,18 +51,19 @@
    <div class="row">
   <div class="span8">
   	<label class="radio">
-  	<%= f.radio_button('type_of_user', "merchant") %>
+  	<%= f.radio_button(:type_of_user, "merchant") %>
   	I will be using Pack The Venue to host events
   	</label>
   	<label class="radio">
-  	<%= f.radio_button('type_of_user', "buyer") %>
+  	<%= f.radio_button(:type_of_user, "buyer") %>
   	I will be using Pack The Venue to attend events
   	</label>
   	<label class="radio">
-  	<%= f.radio_button('type_of_user', "both") %>
+  	<%= f.radio_button(:type_of_user, "both") %>
   	I will be using Pack The Venue to host and attend events
   	</label>
     </div>
+    <%= f.file_field :photo %>
    </div>
 <div class="button-container">
   <div><%= f.submit "Sign up", :class => 'btn btn-primary' %></div>
@@ -101,14 +71,6 @@
 
 		</div>
 		</div>
-		<div class="span4">
-			<h4>Log in with Facebook</h4>
-				<%= image_tag("facebook-connect-button.png") %> </br>
-	<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
-  <% end -%>
 		</div>
-		</div>
+		
 </div>

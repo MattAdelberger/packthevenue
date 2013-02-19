@@ -14,7 +14,7 @@
 <% @payments.each do |payments| %>
 <tr>
 	<td><%= combine_name(payments.account.first_name, payments.account.last_name) %></td>
-	<td><%= payments.quantity %></td>
+	<td class="text-center"><%= payments.quantity %></td>
 	<td><%= payments.status %></td>
 </tr>
 <% end %>

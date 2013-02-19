@@ -19,13 +19,12 @@ module ApplicationHelper
 	   @current_user = Account.find(current_account)
 	 end
 	 
-	 def ticketsRemaining(activity)
+	 def ticketsSold(activity)
     p = Payment.find(:all, :conditions => {:activity_id => activity.id})
-    total_quantity = 0
+    tickets_sold = 0
     p.each do |payment|
-      total_quantity = total_quantity + payment.quantity
+      tickets_sold = tickets_sold + payment.quantity
     end
-     tickets_remaining = activity.max_capacity - total_quantity
-     return tickets_remaining
+     return tickets_sold
   end
 end

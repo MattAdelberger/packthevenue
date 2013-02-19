@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(:version => 20130121194209) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "accounts", ["email"], :name => "index_accounts_on_email", :unique => true
@@ -69,9 +73,10 @@ ActiveRecord::Schema.define(:version => 20130121194209) do
     t.boolean  "gmaps"
     t.integer  "max_capacity",         :default => 1, :null => false
     t.integer  "min_capacity"
-    t.integer  "reduced_ticket",                      :null => false
-    t.integer  "starting_ticket",                     :null => false
+    t.decimal  "reduced_ticket",                      :null => false
+    t.decimal  "starting_ticket",                     :null => false
     t.boolean  "include_fee"
+    t.string   "category",                            :null => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "photo_file_name"

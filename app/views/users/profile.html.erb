@@ -1,6 +1,19 @@
 <div class="container container-padding">
-	<div class="row">
-		<div class="span3 well well-large">
+	<div class="row-fluid">
+		<div class="span3 well well-small">
+			
+			<% if @user.photo.exists? %>
+						<%= image_tag @user.photo.url(:medium) %>
+					<% else %>
+						<%= image_tag('profile_placeholder.png') %>
+					<% end %>
+			</div>
+		<div class="span7">
+			<h2><%= combine_name(@user.first_name, @user.last_name) %></h2>
+			<h4><%= @user.company_name %></h4>
+			</div>
+			<div class="span2">
+			<h4 class="pull-right"><%= link_to "Edit Profile", account_settings_path %></h4>
 			</div>
 			</div>
 			
@@ -26,7 +39,7 @@
 	<div class="span3 profile-activity">
 		<div class="row">
 			<div class="span3">
-				<h5 class="pull-left"><%=raw truncate(activity.name, :length => 30) %></h5>
+				<h5 class="pull-left"><%=raw truncate(activity.name, :length => 20) %></h5>
 				
 				<h6><%= link_to 'View Event', activity, :class => "pull-right" %></h6>
 		</div>
@@ -52,7 +65,7 @@
 	<div class="span3 profile-activity">
 		<div class="row">
 			<div class="span3">
-				<h5 class="pull-left"><%=raw truncate(payment.activity.name, :length => 30) %></h5>
+				<h5 class="pull-left"><%=raw truncate(payment.activity.name, :length => 20) %></h5>
 				
 				<h6><%= link_to 'View Event', payment.activity, :class => "pull-right" %></h6>
 		</div>
