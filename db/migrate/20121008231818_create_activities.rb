@@ -14,7 +14,7 @@ class CreateActivities < ActiveRecord::Migration
       t.float :latitude, :null => false
       t.float :longitude, :null => false
       t.boolean :gmaps 
-	    t.integer :max_capacity, :default => 1, :null => false
+	    t.integer :max_capacity, :null => false
 	    t.integer :min_capacity
 	    t.decimal :reduced_ticket, :null => false
 	    t.decimal :starting_ticket, :null => false

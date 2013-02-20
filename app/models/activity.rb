@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   :start, :state, :zip, :ticket_types_attributes, :location_description, :min_capacity, :reduced_ticket, 
   :starting_ticket, :include_fee, :max_capacity
   belongs_to :account
-  validates_presence_of :address, :city, :description, :name, :zip
+  validates_presence_of :name, :description, :start, :end, :address, :city, :zip
  
   acts_as_followable
   

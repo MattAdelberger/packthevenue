@@ -27,4 +27,11 @@ module ApplicationHelper
     end
      return tickets_sold
   end
+  
+  def currentTicketPriceDick(activity)
+    payments = Payment.find(:all, :conditions => {:activity_id => activity.id})
+    increment = (activity.starting_ticket - activity.reduced_ticket) / (activity.max_capacity - activity.min_capacity)
+    current_ticket = (activity.starting_ticket) - (increment * (ticketsSold(activity) - activity.min_capacity))
+    return current_ticket
+  end
 end

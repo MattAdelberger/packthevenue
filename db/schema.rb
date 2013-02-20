@@ -58,27 +58,27 @@ ActiveRecord::Schema.define(:version => 20130121194209) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "activities", :force => true do |t|
-    t.integer  "account_id",                          :null => false
-    t.string   "name",                                :null => false
-    t.text     "description",                         :null => false
+    t.integer  "account_id",           :null => false
+    t.string   "name",                 :null => false
+    t.text     "description",          :null => false
     t.text     "location_description"
-    t.datetime "start",                               :null => false
-    t.datetime "end",                                 :null => false
-    t.string   "address",                             :null => false
-    t.string   "city",                                :null => false
-    t.string   "state",                               :null => false
-    t.integer  "zip",                                 :null => false
-    t.float    "latitude",                            :null => false
-    t.float    "longitude",                           :null => false
+    t.datetime "start",                :null => false
+    t.datetime "end",                  :null => false
+    t.string   "address",              :null => false
+    t.string   "city",                 :null => false
+    t.string   "state",                :null => false
+    t.integer  "zip",                  :null => false
+    t.float    "latitude",             :null => false
+    t.float    "longitude",            :null => false
     t.boolean  "gmaps"
-    t.integer  "max_capacity",         :default => 1, :null => false
+    t.integer  "max_capacity",         :null => false
     t.integer  "min_capacity"
-    t.decimal  "reduced_ticket",                      :null => false
-    t.decimal  "starting_ticket",                     :null => false
+    t.decimal  "reduced_ticket",       :null => false
+    t.decimal  "starting_ticket",      :null => false
     t.boolean  "include_fee"
-    t.string   "category",                            :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.string   "category",             :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

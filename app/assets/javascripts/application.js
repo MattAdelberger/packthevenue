@@ -16,6 +16,7 @@
 //= require_self
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require clockface
 
 
 $(document).ready(function(){
@@ -53,6 +54,10 @@ $(document).ready(function(){
     	"format": "yyyy-mm-dd", 
     	"weekStart": 1, 
     	"autoclose": true})
+});
+
+	$(function(){
+    $('#activity-time').clockface();  
 });
 
  });
