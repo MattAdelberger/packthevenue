@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
   before_filter :authenticate_account!, :except => [:show]
   
   load_and_authorize_resource
+  skip_authorize_resource :only => :show
 
   def index
     @activities = Activity.all

@@ -9,8 +9,7 @@
       <th>Event Name</th>
       <th>Venue</th>
       <th>Seat</th>
-      <th>Current Price</th>
-      <th>Subtotal</th>
+      <th>Current Ticket Price</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +20,6 @@
 	    		<td></td>
 	      	<td>General Admission</td>
 	      	<td><%= number_to_currency(session["current_price"]) %></td>
-	      	<td>$15.00</td>
 	    	</tr>
 	 <% count = count + 1 %>
 	 <% end %>
@@ -29,8 +27,18 @@
 </table>
 <div class="row-fluid">
 	<div class="span12">
+		<span class="pull-right"><strong>Subtotal:</strong> <%= number_to_currency(@subtotal) %> </span> 
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12">
+		<span class="pull-right"><strong>Ticket Fees:</strong> <%= number_to_currency(@fees) %> </span> 
+	</div>
+</div>
 
-		<span class="pull-right"><strong>Total:</strong> $25.00</span> 
+<div class="row-fluid">
+	<div class="span12">
+		<span class="pull-right"><strong>Tentative Total:</strong> <%= number_to_currency(@total) %> </span> 
 	</div>
 </div>
 

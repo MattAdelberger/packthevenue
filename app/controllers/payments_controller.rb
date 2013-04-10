@@ -12,6 +12,9 @@ class PaymentsController < ApplicationController
 	def confirmation
 		@account = Account.new
 		@payment = Payment.new
+		@fees = ((session["current_price"].to_i * 0.029) + 0.30) * session["ticket_quantity"].to_i
+		@subtotal = session["current_price"] * session["ticket_quantity"].to_i
+		@total = @fees + @subtotal
 	end
 	
 	def create 
