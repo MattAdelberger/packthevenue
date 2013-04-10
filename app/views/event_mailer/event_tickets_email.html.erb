@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h3>Dear <%= @payment.account.first_name %> <%= @payment.account.last_name %>,</h3>
+	<p>Thank you for buying tickets for <%= @payment.activity.name %></p>
+
+	<h3>Best Regards,</h3>
+	<h3>Pack The Venue</h3>
+  </body>
+</html>

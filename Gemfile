@@ -54,6 +54,8 @@ gem 'therubyracer'
 
 gem "less-rails"
 
+gem "cancan"
+
 #gem "mysql2", "~> 0.3.11"
 
 gem 'execjs'

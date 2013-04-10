@@ -1,5 +1,9 @@
-ActiveAdmin.register Account do     
-  index do                            
+ActiveAdmin.register Account do
+  
+
+       
+  index do
+    selectable_column                            
     column :email                     
     column :current_sign_in_at        
     column :last_sign_in_at           
@@ -10,10 +14,18 @@ ActiveAdmin.register Account do
   filter :email                       
 
   form do |f|                         
-    f.inputs "Account Details" do       
-      f.input :email                  
-      f.input :password               
-      f.input :password_confirmation  
+    f.inputs "Account Details" do
+      f.input :first_name
+      f.input :last_name
+      f.input :company_name
+      f.input :zip_code 
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+      f.input :type_of_user
+      f.input :balanced_account_id
+      f.input :balanced_card_id 
+      f.input :balanced_bank_id 
     end                               
     f.buttons                         
   end                                 

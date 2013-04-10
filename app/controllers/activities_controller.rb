@@ -1,6 +1,8 @@
 class ActivitiesController < ApplicationController
   
   before_filter :authenticate_account!, :except => [:show]
+  
+  load_and_authorize_resource
 
   def index
     @activities = Activity.all
@@ -19,9 +21,11 @@ class ActivitiesController < ApplicationController
    
     if view_context.ticketsSold(@activity) > @activity.min_capacity
       @current_price = currentTicketPrice(@activity)
+       session["current_price"] = @current_price
       @saving_price = @activity.starting_ticket - @current_price
     else
       @current_price = @activity.starting_ticket
+      session["current_price"] = @current_price
       @saving_price = 0
     end
   end
@@ -38,6 +42,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(params[:activity])
     @activity.account_id = current_account.id
+    @activity.status = "created"
     if @activity.save 
       redirect_to @activity
     else
@@ -58,5 +63,20 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
     redirect_to activities_path
+  end
+  
+  def close_event
+    @activity = Activity.find(params[:id])
+    @activity.status = "Processing"
+    if view_context.ticketsSold(@activity) > @activity.min_capacity
+      @activity.final_price = currentTicketPrice(@activity).to_i * 100
+    else
+      @activity.final_price = (@activity.starting_ticket).to_i * 100
+    end
+    if @activity.save 
+      redirect_to @activity
+    else
+      redirect_to @activity
+    end
   end
 end

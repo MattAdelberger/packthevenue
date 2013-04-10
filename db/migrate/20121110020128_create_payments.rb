@@ -5,6 +5,7 @@ class CreatePayments < ActiveRecord::Migration
       t.references :activity, :null => false
       t.string :status, :null => false
       t.integer :quantity, :null => false
+      t.string :uri, :null => false
       t.timestamps
     end
   end

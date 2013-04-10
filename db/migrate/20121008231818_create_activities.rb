@@ -20,6 +20,8 @@ class CreateActivities < ActiveRecord::Migration
 	    t.decimal :starting_ticket, :null => false
 	    t.boolean :include_fee
 	    t.string :category, :null => false
+	    t.integer :final_price
+	    t.string :status
       t.timestamps
     end
   end

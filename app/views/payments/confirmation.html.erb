@@ -1,33 +1,64 @@
 <div class="container container-padding">
-
+	<div id="confirmation" class="page-wrapper">
+	      	 
+	      	 <h4>Invoice</h4>
 <% activity = Activity.find(session["activity_id"]) %>
+				<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Venue</th>
+      <th>Seat</th>
+      <th>Current Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% count = 1 %>
+  	<% while count <= session["ticket_quantity"].to_i %>
+	    	<tr>
+	    		<td><%= activity.name %></td>
+	    		<td></td>
+	      	<td>General Admission</td>
+	      	<td><%= number_to_currency(session["current_price"]) %></td>
+	      	<td>$15.00</td>
+	    	</tr>
+	 <% count = count + 1 %>
+	 <% end %>
+  </tbody>
+</table>
+<div class="row-fluid">
+	<div class="span12">
 
-General Admission
- 
- <%= session["ticket_quantity"] %>
- 
- <%= form_for @payment do |f| %>
+		<span class="pull-right"><strong>Total:</strong> $25.00</span> 
+	</div>
+</div>
+
+
+
+ <%= form_for @payment do |f|  %>
  
 
   <fieldset>
-    <legend>Payment Information</legend>
+    <legend>Enter Payment Information</legend>
     <label>Card Holder Name</label>
-    <input type="text" class="span5" placeholder="John Doe">
+    <input type="text" class="span5" placeholder="John Doe" name="name">
     <label>Card Number</label>
-    <input type="text" class="span5" placeholder="1234 5678 9876 5432">
+    <input type="text" class="span5" placeholder="1234 5678 9876 5432" name="card_number">
     <label>Security Code</label>
-    <input type="text" class="span1" placeholder="888">
+    <input type="text" class="span1" placeholder="888" name="security_code">
     <label>Expiration Date</label>
-    <select class="span1"></select>
-    <select class="span1"></select>
-    <legend>Billing Information</legend>
-    <%= f.submit 'Place Order', :class => 'btn btn-primary pull-right' %>
+   	<input type="text" class="span1" name="expiration_month" placeholder="02"> /
+        <input type="text" class="span1" name="expiration_year" placeholder="2015">
+    <%= f.submit 'Place Order', :class => 'btn btn-primary pull-right', :id => "submit-button" %>
   </fieldset>
-
-
- 
- 	
- 
+  
+  <%= f.hidden_field :uri %>
+  
  <% end %>
-
+ 
+  <div class="well well-small">
+ 	NOTE: Your tickets will be emailed to you. Please print them off and bring them with you.
+ </div>
+ </div>
 </div>

@@ -19,13 +19,27 @@ Packthevenue::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
   # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+   config.action_dispatch.x_sendfile_header = "X-Sendfile"
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+       :address              => "smtpout.secureserver.net",
+       :port                 => 80,
+       :domain               => 'packthevenue.com',
+       :user_name            => 'info@packthevenue.com',
+       :password             => 'Ma-1220535',
+       :authentication       => 'login',
+       :enable_starttls_auto => false 
+    }
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

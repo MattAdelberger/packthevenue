@@ -1,9 +1,8 @@
 class UserMailer < ActionMailer::Base
-  default from: "matt.adelberger@gmail.com"
+  default from: "info@packthevenue.com"
   
-  def welcome_email(user)
-    @user = user
-    @url  = 'http://packthevenue.com'
-    mail(to: user.email, subject: 'Pack The Venue Welcomes You!')
+  def welcome_email(account)
+    @account = account
+    mail(:to => account.email, :subject => "Thanks for signing up. Now what?", :from => "\"Pack The Venue\" <info@packthevenue.com>")
   end
 end

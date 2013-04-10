@@ -8,19 +8,21 @@
 <!--	<%= form_tag search_path, :class => "navbar-search" do %>
     	<%= text_field_tag :header_search, nil, :placeholder => 'Search for people and activities', :class => "span3" %>
     <% end %> -->
+   <% @user = Account.find(current_account) %>
 		<ul class="nav pull-right">
+			<% if (@user.type_of_user != "buyer") %>
 			<li><%= link_to "Create An Event", new_activity_path %></li>
+			<% end %>
 			<li class="dropdown">
     <a class="dropdown-toggle"
        data-toggle="dropdown"
        href="#">
-       <% @user = Account.find(current_account) %>
         <%= combine_name(@user.first_name, @user.last_name) %>
         <b class="caret"></b>
       </a>
     <ul class="dropdown-menu">
       		<li><%= link_to 'View Profile', profile_path %></li>  
- 	 		 <li class="divider"></li>
+ 	 		 <li class="divider"></li>	 
  	 		 <li><%= link_to "Edit Profile", account_settings_path %></li>
  	 		 <li class="divider"></li>
  	  		<li><%= link_to "Log Out", log_out_path %></li>

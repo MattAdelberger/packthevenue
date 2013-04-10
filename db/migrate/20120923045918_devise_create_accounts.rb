@@ -9,6 +9,9 @@ class DeviseCreateAccounts < ActiveRecord::Migration
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
       t.string :type_of_user
+      t.string :balanced_account_id
+      t.string :balanced_bank_id
+      t.string :balanced_card_id
 
       ## Recoverable
       t.string   :reset_password_token

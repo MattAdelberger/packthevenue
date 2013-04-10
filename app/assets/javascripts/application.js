@@ -17,6 +17,9 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require clockface
+//= require balanced
+//= require jquery-te-1.3.3.min.js
+
 
 
 $(document).ready(function(){
@@ -58,14 +61,16 @@ $(document).ready(function(){
 
 	$(function(){
     $('#activity-time').clockface();  
+    
+    $("#create_textarea").jqte();
+    
 });
 
+
+
+
  });
-
-
-
-
-
-
+ 
+ 
 
 

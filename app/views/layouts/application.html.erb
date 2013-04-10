@@ -4,6 +4,7 @@
   <title><%= @title.nil? ? "Pack The Venue" : "#{@title} | Pack The Venue" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://js.balancedpayments.com/v1/balanced.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

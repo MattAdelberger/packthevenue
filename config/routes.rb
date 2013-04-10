@@ -1,5 +1,7 @@
 Packthevenue::Application.routes.draw do
 
+  root :to => "pages#splash"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -24,11 +26,13 @@ end
     get "new_password" => "devise/passwords#new"
   end
   
-  root :to => "pages#splash"
+  
   
   #activities 
   
   match "guest_list" => "activities#guest_list", :as => :guest_list
+  
+  match "close_event" => "activities#close_event", :as => :close_event
   
   #payments
   
@@ -58,9 +62,14 @@ end
   
   match "splash" => "pages#splash", :as => :welcome
   
+  match "not_authorized" => "pages#not_authorized", :as => :not_authorized
+  
+  
   #search
   
   match "search" => "application#header_search", :as => :search, :via => :get
+  
+
  
   
 

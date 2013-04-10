@@ -6,6 +6,8 @@
 						<%= link_to("View Event", { :action => 'show', :id => @activity.id}, :class => "btn btn-large") %>
 						<%= link_to("Edit Event", { :action => 'edit', :id => @activity.id}, :class => "btn btn-large") %>
 						<%= link_to("Guest List", { :action => 'guest_list', :id => @activity.id}, :class => "btn btn-large") %>
+						<%= link_to("Collect Money", { :action => 'close_event', :id => @activity.id}, :class => "btn btn-large") %>
+						Event Status: <%= @activity.status %>
 			</div>
 		</div>
 	</div>

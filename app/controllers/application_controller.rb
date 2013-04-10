@@ -2,12 +2,25 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def after_sign_in_path_for(resource)
-    profile_path
-  end
+  stored_location_for(resource) ||
+    if resource.is_a?(Admin)
+      admin_dashboard_path
+    else
+      profile_path
+    end
+end
+
+  rescue_from CanCan::AccessDenied do |exception|  
+  redirect_to not_authorized_path 
+end 
 
   def after_sign_out_path_for(resource)
     root_path
   end
+  
+  def current_user
+     @current_user = Account.find(current_account)
+   end
   
   def redirect_to_sign_up
     if signed_in?.blank?
@@ -37,8 +50,4 @@ class ApplicationController < ActionController::Base
  def combine_name(first, last)
 		first + " " + last
 	end
-	
-	def check_privileges!(activity)
-  redirect_to "/profile" unless current_user.id = activity.account.id
-end
 end

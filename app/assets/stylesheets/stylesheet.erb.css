@@ -9,7 +9,7 @@ legend {
 
 #content {
 	background: #f8f8f8 URL('cross_scratches.png') fixed;
-	padding: 50px 0;
+	padding: 50px 0 0 0;
 }
 
 #splash {
@@ -136,7 +136,18 @@ legend {
 .centered{ text-align:center !important;}
 
 .container-padding {
-	padding: 40px 0;
+	padding: 20px 0;
+}
+
+.page-wrapper {
+	background: #fff;
+	border: 1px solid #bbb;
+	-moz-border-radius: 10px;
+    border-radius: 10px;
+	padding: 20px;
+	-moz-box-shadow: 0 1px 10px #ccc;
+	-webkit-box-shadow: 0 1px 10px #ccc;
+	box-shadow: 0 1px 10px #ccc;
 }
 
 .affix {
@@ -164,6 +175,8 @@ legend {
 
 #show-event h4 {
 	margin-top: 40px;
+	padding: 5px;
+	background: #eee;
 }
 
 #show-event-prices {
@@ -171,8 +184,16 @@ legend {
 	padding: 20px 0 0 0;
 }
 
+#create-event {
+	padding-bottom: 20px;
+}
+
 .how-it-works {
 	padding: 50px 0;
+}
+
+#confirmation td {
+	padding: 20px 10px;
 }
 
 #register-now {
@@ -186,4 +207,8 @@ legend {
 
 #register-now h1 {
 	margin-bottom: 40px;
+}
+
+#not-authorized {
+	margin-top: 20px;
 }
